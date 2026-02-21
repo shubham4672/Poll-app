@@ -52,7 +52,7 @@ new class extends Component {
     <h1 class="font-medium text-2xl">Create poll</h1>
     <form wire:submit.prevent="createPoll">
         <label class="mt-3">POLL TITLE</label>
-        <input type="text" wire:model.live="title" class="mt-2 border-2" />
+        <input type="text" wire:model.live.debounce.250ms="title" class="mt-2 border-2" />
         <div class="text-red-500">
             @error('title')
                 {{ $message }}
