@@ -42,8 +42,8 @@ new class extends Component {
                 'description' => $option,
             ]);
         }
-
         $this->reset(['title', 'options']);
+        $this->dispatch("update-listing");
     }
 };
 ?>

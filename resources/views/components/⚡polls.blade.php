@@ -4,11 +4,13 @@ use Livewire\Component;
 use App\Models\Poll;
 use App\Models\Option;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\On; 
 
 new class extends Component {
     #[Computed()]
     public $polls = [];
 
+    #[On('update-listing')]
     public function mount()
     {
         $this->polls = Poll::all();
