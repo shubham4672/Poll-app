@@ -13,6 +13,7 @@ new class extends Component {
         'options.*' => 'required|min:2|max:15'
     ], [], [],
         [
+            'options.*.min' => 'Option must have atleast 2 characters',
             'options.*.required' => 'Option field cannot be empty',
         ]
     )]
@@ -22,11 +23,13 @@ new class extends Component {
     {
         $this->options[] = '';
     }
+
     public function deleteOption($key)
     {
         unset($this->options[$key]);
         $this->options = array_values($this->options);
     }
+
     public function createPoll()
     {
         $this->validate();

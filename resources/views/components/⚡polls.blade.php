@@ -2,6 +2,7 @@
 
 use Livewire\Component;
 use App\Models\Poll;
+use App\Models\Option;
 use Livewire\Attributes\Computed;
 
 new class extends Component {
@@ -11,6 +12,12 @@ new class extends Component {
     public function mount()
     {
         $this->polls = Poll::all();
+    }
+
+    public function vote($optionId)
+    {
+        $option = Option::findOrFail($optionId);
+        $option->increment('vote_count', 1);
     }
 };
 ?>

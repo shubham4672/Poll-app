@@ -4,8 +4,8 @@
         <div>
             @foreach ($poll->options as $option)
                 <div class="mt-2">
-                    <button class="btn">Vote</button>
-                    {{ $option->description }} ({{ 0 }})
+                    <button class="btn" wire:click="vote({{ $option->id }})">Vote</button>
+                    {{ $option->description }} ({{ $option->vote_count }})
                 </div>
             @endforeach
         </div>
